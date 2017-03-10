@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="These brief instructions will help you how to start develop OpenKAI apps with Eclipse CDT systems">
+<meta name="keywords" content="Eclipse CDT,  Eclipse CDT">
+<title>Develop OpenKAI apps with Eclipse CDT | OpenKAI Documentation</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> OpenKAI Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://github.com/yankailab/OpenKAI" target="_blank">OpenKAI</a></li>
+                
+                
+                
+                <li><a href="http://www.labromance.com" target="_blank">LabRomance</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Develop OpenKAI apps with Eclipse CDT">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">OpenKAI 1.0</li>
+    
+    
+    
+        
+    
+    <li>
+        <a href="#">Getting Started</a>
+        <ul>
+            
+            
+            
+            <li><a href="index.html">Introduction</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tx1build.html">Build & Run on NVIDIA Jetson TX1</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="x86build.html">Installation for Ubuntu 16.04LTS on x86_64 systems</a></li>
+            
+            
+            
+            
+            
+            
+            <li class="active"><a href="eclipse.html">Develop OpenKAI apps with Eclipse CDT</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Develop OpenKAI apps with Eclipse CDT</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">These brief instructions will help you how to start develop OpenKAI apps with Eclipse CDT systems</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+  <h1 id="develop-openkai-apps-with-eclipse-cdt">Develop OpenKAI apps with Eclipse CDT</h1>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Firstly complete the setup process following <a href="https://github.com/yankailab/OpenKAI/blob/master/doc/x86_64/Ubuntu/build.md">this guide</a></div>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Assume you put all the git repositories inside the “/home/ubuntu/src” directory as in above link,run</p>
+
+<pre><code class="language-Shell">sudo apt-get install default-jre
+sudo su -c "echo -e '/usr/local/cuda/lib64\n/home/ubuntu/src/jetson-inference/build/x86_64/lib' &gt;&gt; /etc/ld.so.conf"
+sudo ldconfig
+</code></pre>
+
+<h2 id="eclipse-install">Eclipse install</h2>
+<p>Download, extract and launch the latest <a href="http://www.eclipse.org/downloads/packages/">Eclipse IDE for C/C++ Developers (CDT)</a>,</p>
+
+<pre><code class="language-Shell">tar xzvf eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz
+cd eclipse
+sudo ./eclipse
+</code></pre>
+
+<p>Following the instruction to setup the worksapce in the first launch of Eclipse. Here we suppose to make and set “/home/ubuntu/src/workspace” directory as the workspace.</p>
+
+<h2 id="eclipse-project">Eclipse project</h2>
+<p>Make a new C++ Project in Eclipse</p>
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_newProj1.png" alt="Eclipse " />
+</p>
+
+<p>Here we assume to use the project name “OpenKAI”, check “Use default location” or set the Location as “/home/ubuntu/src/workspace”, choose “Empty Project”, Toolchains “Linux GCC”, and click Next&gt;</p>
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_newProj2.png" alt="Eclipse " />
+</p>
+
+<p>Make sure both “Debug” and “Release” are checked, and click “Finish”</p>
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_newProj3.png" alt="Eclipse " />
+</p>
+
+<h2 id="git-clone-into-eclipse-workspace">Git clone into eclipse workspace</h2>
+<p>Open Terminal and run</p>
+<pre><code class="language-Shell">cd ~/src/workspace/OpenKAI
+git clone https://github.com/yankailab/OpenKAI.git
+</code></pre>
+
+<h2 id="eclipse-project-settings">Eclipse project settings</h2>
+<p>Back to Eclipse CDT, in the left pane click “OpenKAI” and press F5 key, now you should see there is an “OpenKAI” directory in the project.</p>
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_OpenKAI.png" alt="Eclipse OpenKAI" />
+</p>
+
+<p>Right click project “OpenKAI” and click “Properties”, click “C/C++ Build”, and choose the Configuration to be “[All configurations]”. Setup each page as following:</p>
+
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxBuild.png" alt="Eclipse c++ Build" />
+</p>
+
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxBuildBehavior.png" alt="Eclipse c++ Build Behavior" />
+</p>
+
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxBuildArtifact.png" alt="Eclipse c++ Build Artifact" />
+</p>
+
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxDialect.png" alt="Eclipse c++ Dialect" />
+</p>
+
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxIncludes.png" alt="Eclipse c++ Includes" />
+</p>
+
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxLibraries.png" alt="Eclipse c++ Libraries" />
+</p>
+
+<h3 id="note">Note:</h3>
+<p>If you experienced non-reponding or freezing in Eclipse on Ubuntu 16.04 etc., try to force Eclipse using GTK2 instead of GTK3. Open “/home/ubuntu/src/eclipse/eclipse.ini” and add</p>
+
+<div class="language-ini highlighter-rouge"><pre class="highlight"><code><span class="err">--launcher.GTK_version</span>
+<span class="err">2</span>
+</code></pre>
+</div>
+
+<p>just above the “–launcher.appendVmargs” line, so the “eclipse.ini” should somehow look like this:</p>
+
+<div class="language-ini highlighter-rouge"><pre class="highlight"><code><span class="err">-startup</span>
+<span class="err">plugins/org.eclipse.equinox.launcher_1.3.201.v20161025-1711.jar</span>
+<span class="err">--launcher.library</span>
+<span class="err">plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.401.v20161122-1740</span>
+<span class="err">-product</span>
+<span class="err">org.eclipse.epp.package.cpp.product</span>
+<span class="err">--launcher.defaultAction</span>
+<span class="err">openFile</span>
+<span class="err">-showsplash</span>
+<span class="err">org.eclipse.platform</span>
+<span class="err">--launcher.defaultAction</span>
+<span class="err">openFile</span>
+<span class="err">--launcher.GTK_version</span>
+<span class="err">2</span>
+<span class="err">--launcher.appendVmargs</span>
+<span class="err">-vmargs</span>
+<span class="py">-Dosgi.requiredJavaVersion</span><span class="p">=</span><span class="s">1.8</span>
+<span class="err">-XX:+UseG1GC</span>
+<span class="err">-XX:+UseStringDeduplication</span>
+<span class="py">-Dosgi.requiredJavaVersion</span><span class="p">=</span><span class="s">1.8</span>
+<span class="err">-Xms256m</span>
+<span class="err">-Xmx1024m</span>
+</code></pre>
+</div>
+
+<h2 id="launch-openkai-from-eclipse">Launch OpenKAI from Eclipse</h2>
+<p>Open the run configuration setting by</p>
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_runConfig.png" alt="Eclipse run configuration" />
+</p>
+
+<p>Click “New launch configuration” icon in the left pane, put a new name and setting up like following:</p>
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_runConfig2.png" alt="Eclipse run configuration" />
+</p>
+
+<p align="center">
+<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_runConfig3.png" alt="Eclipse run configuration" />
+</p>
+
+<p>Click “Apply”, “Run” and you are done.</p>
+
+<p>Enjoy.</p>
+
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        
+    </div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2017 LabRomance. All rights reserved. <br />
+ Site last generated: Mar 11, 2017 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+
+</body>
+
+</html>
