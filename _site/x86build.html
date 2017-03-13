@@ -257,38 +257,42 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-<pre><code class="language-Shell">sudo apt-get update
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sudo apt-get update
 sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev libtbb-dev libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf python-scipy python-pip libeigen3-dev default-jre
 </code></pre>
+</div>
 
 <h2 id="cuda">CUDA</h2>
 <p>Download the latest <a href="https://developer.nvidia.com/cuda-downloads">CUDA</a> and run</p>
 
-<pre><code class="language-Shell">chmod u+x cuda_8.0.44_linux.run
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>chmod u+x cuda_8.0.44_linux.run
 ./cuda_8.0.44_linux.run
-sudo echo -e "export PATH=/usr/local/cuda/bin:\$PATH\nexport LD_LIBRARY_PATH=/usr/local/cuda/lib64:\$LD_LIBRARY_PATH" &gt;&gt; ~/.bashrc
+sudo <span class="nb">echo</span> -e <span class="s2">"export PATH=/usr/local/cuda/bin:</span><span class="se">\$</span><span class="s2">PATH</span><span class="se">\n</span><span class="s2">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:</span><span class="se">\$</span><span class="s2">LD_LIBRARY_PATH"</span> &gt;&gt; ~/.bashrc
 </code></pre>
+</div>
 
 <h2 id="cudnn">cuDNN</h2>
 <p>Download the latest <a href="https://developer.nvidia.com/cudnn">cuDNN</a> and run</p>
 
-<pre><code class="language-Shell">tar xzvf cudnn-8.0-linux-x64-v5.1.tgz
-cd cuda
-sudo cp lib64/lib* /usr/local/cuda/lib64/
-sudo cp include/* /usr/local/cuda/include/
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>tar xzvf cudnn-8.0-linux-x64-v5.1.tgz
+<span class="nb">cd </span>cuda
+sudo cp lib64/lib<span class="k">*</span> /usr/local/cuda/lib64/
+sudo cp include/<span class="k">*</span> /usr/local/cuda/include/
 sudo ldconfig
 </code></pre>
+</div>
 
 <h2 id="git-repositories">Git repositories</h2>
 
-<pre><code class="language-Shell">cd ~
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~
 mkdir src
-cd src
+<span class="nb">cd </span>src
 git clone https://github.com/Itseez/opencv.git
 git clone https://github.com/Itseez/opencv_contrib.git
 git clone https://github.com/dusty-nv/jetson-inference.git
 git clone https://github.com/yankailab/OpenKAI.git
 </code></pre>
+</div>
 
 <h2 id="optional-edit-opencv">(Optional) Edit OpenCV</h2>
 <p>If you are going to use ZED camera with OpenKAI, the latest ZED driver (v1.2) is built with OpenCV3.1, however, the latest OpenCV git marks the version with 3.2, which may brings difficulties in linking OpenCV .so files. A simple work-around is to change the version definition in the OpenCV repository. Open</p>
@@ -297,46 +301,52 @@ git clone https://github.com/yankailab/OpenKAI.git
 
 <p>and replace the following part</p>
 
-<pre><code class="language-cxx">#define CV_VERSION_MAJOR    3
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cp">#define CV_VERSION_MAJOR    3
 #define CV_VERSION_MINOR    2
 #define CV_VERSION_REVISION 0
-</code></pre>
+</span></code></pre>
+</div>
 
 <p>with</p>
 
-<pre><code class="language-cxx">#define CV_VERSION_MAJOR    3
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cp">#define CV_VERSION_MAJOR    3
 #define CV_VERSION_MINOR    1
 #define CV_VERSION_REVISION 0
-</code></pre>
+</span></code></pre>
+</div>
 
 <h2 id="build-opencv">Build OpenCV</h2>
 
-<pre><code class="language-Shell">cd ~/src/opencv
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/src/opencv
 mkdir build
-cd build
+<span class="nb">cd </span>build
 ccmake ../
 </code></pre>
+</div>
 <p>Setup the <a href="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/OpenCV_ccmake_1.png">build options p1</a>, <a href="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/OpenCV_ccmake_2.png">build options p2</a> and</p>
 
-<pre><code class="language-Shell">make all -j8
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>make all -j8
 sudo make install
 </code></pre>
+</div>
 
 <h2 id="zed">ZED</h2>
 <p>Download the latest driver from ZED site and run</p>
 
-<pre><code class="language-Shell">chmod u+x ZED_SDK_Linux_Ubuntu16_CUDA80_v1.2.0.run
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>chmod u+x ZED_SDK_Linux_Ubuntu16_CUDA80_v1.2.0.run
 ./ZED_SDK_Linux_Ubuntu16_CUDA80_v1.2.0.run
 </code></pre>
+</div>
 
 <h2 id="tensorrt">TensorRT</h2>
 <p>Download and install <a href="https://developer.nvidia.com/tensorrt">TensorRT</a>. If you came across the “Broken package” error, extract the files directly from TensorRT’s deb file and copy all the include files and lib files into the correspondent system directories. Optionally, download the <a href="">archive</a> of the exctracted file from the original .deb package, and run</p>
 
-<pre><code class="language-Shell">tar xzvf nv-gie_1.0.0-1+cuda8.0_amd64.tar.gz
-cd nv-gie_1.0.0-1+cuda8.0_amd64
-sudo cp -rp libgie1/usr/* /usr/
-sudo cp -rp libgie-dev/usr/* /usr/
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>tar xzvf nv-gie_1.0.0-1+cuda8.0_amd64.tar.gz
+<span class="nb">cd </span>nv-gie_1.0.0-1+cuda8.0_amd64
+sudo cp -rp libgie1/usr/<span class="k">*</span> /usr/
+sudo cp -rp libgie-dev/usr/<span class="k">*</span> /usr/
 </code></pre>
+</div>
 
 <h2 id="jetson-inference">jetson-inference</h2>
 <p>Open the CMakeLists.txt in jetson-inference directory and replace the CUDA compute ability version in the following part with your own <a href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">CUDA device’</a></p>
@@ -351,34 +361,39 @@ sudo cp -rp libgie-dev/usr/* /usr/
 
 <p>Next, replace the following part</p>
 
-<pre><code class="language-Shell">include_directories(/usr/include/gstreamer-1.0 /usr/lib/aarch64-linux-gnu/gstreamer-1.0/include /usr/include/glib-2.0 /usr/include/libxml2 /usr/lib/aarch64-linux-gnu/glib-2.0/include/)
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>include_directories<span class="o">(</span>/usr/include/gstreamer-1.0 /usr/lib/aarch64-linux-gnu/gstreamer-1.0/include /usr/include/glib-2.0 /usr/include/libxml2 /usr/lib/aarch64-linux-gnu/glib-2.0/include/<span class="o">)</span>
 </code></pre>
+</div>
 
 <p>with</p>
 
-<pre><code class="language-Shell">include_directories(/usr/include/gstreamer-1.0 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/include /usr/include/glib-2.0 /usr/include/libxml2 /usr/lib/x86_64-linux-gnu/glib-2.0/include/)
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>include_directories<span class="o">(</span>/usr/include/gstreamer-1.0 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/include /usr/include/glib-2.0 /usr/include/libxml2 /usr/lib/x86_64-linux-gnu/glib-2.0/include/<span class="o">)</span>
 </code></pre>
+</div>
 
 <p>then</p>
 
-<pre><code class="language-Shell">cd ~/src/jetson-inference/
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/src/jetson-inference/
 mkdir build
-cd build
+<span class="nb">cd </span>build
 cmake ../
 make
 </code></pre>
+</div>
 
 <h2 id="build-openkai">Build OpenKAI</h2>
 
-<pre><code class="language-Shell">cd ~/src/OpenKAI
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/src/OpenKAI
 mkdir build
-cd build
+<span class="nb">cd </span>build
 ccmake ../
 </code></pre>
+</div>
 <p>Setup the <a href="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/OpenKAI_ccmake.png">build options</a>, and</p>
 
-<pre><code class="language-Shell">make all -j8
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>make all -j8
 </code></pre>
+</div>
 
 
     <div class="tags">
@@ -401,7 +416,7 @@ ccmake ../
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 LabRomance. All rights reserved. <br />
- Site last generated: Mar 11, 2017 <br />
+ Site last generated: Mar 13, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

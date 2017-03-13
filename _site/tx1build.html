@@ -264,49 +264,55 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-<pre><code class="language-Shell">sudo apt-get update
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sudo apt-get update
 sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf libeigen3-dev
 </code></pre>
+</div>
 
 <h2 id="git-repositories">Git repositories</h2>
 
-<pre><code class="language-Shell">cd ~
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~
 mkdir src
-cd src
+<span class="nb">cd </span>src
 git clone https://github.com/dusty-nv/jetson-inference.git
 git clone https://github.com/yankailab/OpenKAI.git
 </code></pre>
+</div>
 
 <h2 id="zed">ZED</h2>
 <p>Download the latest driver from ZED site and run</p>
 
-<pre><code class="language-Shell">chmod u+x ZED_SDK_Linux_JTX1_v1.2.0_64b_JetPack23.run
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>chmod u+x ZED_SDK_Linux_JTX1_v1.2.0_64b_JetPack23.run
 ./ZED_SDK_Linux_JTX1_v1.2.0_64b_JetPack23.run
 </code></pre>
+</div>
 
 <h2 id="jetson-inference">jetson-inference</h2>
 
-<pre><code class="language-Shell">cd ~/src/jetson-inference/
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/src/jetson-inference/
 mkdir build
-cd build
+<span class="nb">cd </span>build
 cmake ../
 make
 </code></pre>
+</div>
 
 <h2 id="build-openkai">Build OpenKAI</h2>
 
-<pre><code class="language-Shell">cd ~/src/OpenKAI
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/src/OpenKAI
 mkdir build
-cd build
+<span class="nb">cd </span>build
 cmake ../
 make all -j4
 </code></pre>
+</div>
 
 <h2 id="run-samples">Run samples</h2>
 
-<pre><code class="language-Shell">cd ~/src/OpenKAI/build
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/src/OpenKAI/build
 sudo ./OpenKAI /home/ubuntu/src/OpenKAI/kiss/apmCopter.kiss
 </code></pre>
+</div>
 
 <p>“apmCopter.kiss” part is the configuration script for each OpenKAI application, replace it to your own kiss file.</p>
 
@@ -332,7 +338,7 @@ sudo ./OpenKAI /home/ubuntu/src/OpenKAI/kiss/apmCopter.kiss
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 LabRomance. All rights reserved. <br />
- Site last generated: Mar 11, 2017 <br />
+ Site last generated: Mar 13, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

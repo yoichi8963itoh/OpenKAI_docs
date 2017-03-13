@@ -17,14 +17,14 @@ Download the latest [JetPack for L4T](https://developer.nvidia.com/embedded/jetp
 
 ## Prerequisites
 
-```Shell
+```shell
 sudo apt-get update
 sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf libeigen3-dev
 ```
 
 ## Git repositories
 
-```Shell
+```shell
 cd ~
 mkdir src
 cd src
@@ -35,14 +35,14 @@ git clone https://github.com/yankailab/OpenKAI.git
 ## ZED
 Download the latest driver from ZED site and run
 
-```Shell
+```shell
 chmod u+x ZED_SDK_Linux_JTX1_v1.2.0_64b_JetPack23.run
 ./ZED_SDK_Linux_JTX1_v1.2.0_64b_JetPack23.run
 ```
 
 ## jetson-inference
 
-```Shell
+```shell
 cd ~/src/jetson-inference/
 mkdir build
 cd build
@@ -52,7 +52,7 @@ make
 
 ## Build OpenKAI
 
-```Shell
+```shell
 cd ~/src/OpenKAI
 mkdir build
 cd build
@@ -62,7 +62,7 @@ make all -j4
 
 ## Run samples
 
-```Shell
+```shell
 cd ~/src/OpenKAI/build
 sudo ./OpenKAI /home/ubuntu/src/OpenKAI/kiss/apmCopter.kiss
 ```

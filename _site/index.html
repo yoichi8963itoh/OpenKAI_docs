@@ -283,9 +283,9 @@ $('#toc').on('click', 'a', function() {
 <p><a href="https://www.youtube.com/watch?v=qk_hEtRASqg"><img src="https://img.youtube.com/vi/qk_hEtRASqg/0.jpg" alt="APMcopter+OpenKAI+ZED: visual obstacle avoidance" /></a></p>
 
 <h2 id="build--run">Build &amp; Run</h2>
-<p><a href="https://github.com/yankailab/OpenKAI/blob/master/doc/JetsonTX1/build.md">Build on NVIDIA Jetson TX1</a></p>
+<p><a href="/tx1build.html">Build on NVIDIA Jetson TX1</a></p>
 
-<p><a href="https://github.com/yankailab/OpenKAI/blob/master/doc/x86_64/Ubuntu/build.md">Build on Ubuntu desktop systems</a></p>
+<p><a href="/x86build.html">Build on Ubuntu desktop systems</a></p>
 
 <h2 id="application-implementation">Application implementation</h2>
 <p>There are two ways of implement an application based on OpenKAI: compilation vs. script.</p>
@@ -293,7 +293,7 @@ $('#toc').on('click', 'a', function() {
 <h3 id="compilation">Compilation</h3>
 <p>OpenKAI is implemented purely in C++, it is very easy to implement your application as C/C++ and compile with OpenKAI together. Refer to “OpenKAI/src/Application/Startup.cpp” as a starting point for application integration, and this guide:</p>
 
-<h3 id="develop-openkai-apps-with-eclipse-cdt"><a href="https://github.com/yankailab/OpenKAI/blob/master/doc/x86_64/Ubuntu/eclipse.md">Develop OpenKAI apps with Eclipse CDT</a></h3>
+<p><a href="/eclipse.html">Develop OpenKAI apps with Eclipse CDT</a></p>
 
 <h3 id="kiss-openkai-simple-script">Kiss (OpenKai Simple Script)</h3>
 <p>If the existing function Modules from OpenKAI already meet your needs, you can write a json-like Kiss script to define your application. Note that Kiss is treated as a config file and will be parsed all at once at the beginning of OpenKAI program execution. The Modules defined by Kiss file are statically created and get started to run. Therefore there is no difference in execution speed between the Compilation way and application defined by Kiss (To be updated).</p>
@@ -337,7 +337,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 LabRomance. All rights reserved. <br />
- Site last generated: Mar 11, 2017 <br />
+ Site last generated: Mar 13, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

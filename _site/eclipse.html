@@ -260,18 +260,20 @@ $('#toc').on('click', 'a', function() {
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Assume you put all the git repositories inside the “/home/ubuntu/src” directory as in above link,run</p>
 
-<pre><code class="language-Shell">sudo apt-get install default-jre
-sudo su -c "echo -e '/usr/local/cuda/lib64\n/home/ubuntu/src/jetson-inference/build/x86_64/lib' &gt;&gt; /etc/ld.so.conf"
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sudo apt-get install default-jre
+sudo su -c <span class="s2">"echo -e '/usr/local/cuda/lib64</span><span class="se">\n</span><span class="s2">/home/ubuntu/src/jetson-inference/build/x86_64/lib' &gt;&gt; /etc/ld.so.conf"</span>
 sudo ldconfig
 </code></pre>
+</div>
 
 <h2 id="eclipse-install">Eclipse install</h2>
 <p>Download, extract and launch the latest <a href="http://www.eclipse.org/downloads/packages/">Eclipse IDE for C/C++ Developers (CDT)</a>,</p>
 
-<pre><code class="language-Shell">tar xzvf eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz
-cd eclipse
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>tar xzvf eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz
+<span class="nb">cd </span>eclipse
 sudo ./eclipse
 </code></pre>
+</div>
 
 <p>Following the instruction to setup the worksapce in the first launch of Eclipse. Here we suppose to make and set “/home/ubuntu/src/workspace” directory as the workspace.</p>
 
@@ -293,9 +295,10 @@ sudo ./eclipse
 
 <h2 id="git-clone-into-eclipse-workspace">Git clone into eclipse workspace</h2>
 <p>Open Terminal and run</p>
-<pre><code class="language-Shell">cd ~/src/workspace/OpenKAI
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ~/src/workspace/OpenKAI
 git clone https://github.com/yankailab/OpenKAI.git
 </code></pre>
+</div>
 
 <h2 id="eclipse-project-settings">Eclipse project settings</h2>
 <p>Back to Eclipse CDT, in the left pane click “OpenKAI” and press F5 key, now you should see there is an “OpenKAI” directory in the project.</p>
@@ -383,6 +386,118 @@ git clone https://github.com/yankailab/OpenKAI.git
 
 <p>Enjoy.</p>
 
+<h2 id="just-a-test">Just a test</h2>
+<p>Test CPP css</p>
+
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cp">#include "Startup.h"
+</span>
+<span class="n">Startup</span><span class="o">*</span> <span class="n">g_pStartup</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">onMouseGeneral</span><span class="p">(</span><span class="kt">int</span> <span class="n">event</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">userdata</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">g_pStartup</span><span class="o">-&gt;</span><span class="n">handleMouse</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">flags</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">signalHandler</span><span class="p">(</span><span class="kt">int</span> <span class="n">signal</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">signal</span> <span class="o">!=</span> <span class="n">SIGINT</span><span class="p">)</span><span class="k">return</span><span class="p">;</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">SIGINT: Complete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">g_pStartup</span><span class="o">-&gt;</span><span class="n">m_bRun</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">namespace</span> <span class="n">kai</span>
+<span class="p">{</span>
+
+<span class="n">Startup</span><span class="o">::</span><span class="n">Startup</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N_INST</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">m_pInst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+		<span class="n">m_pMouse</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">m_nInst</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">m_nMouse</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+	<span class="n">m_name</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+	<span class="n">m_bWindow</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">m_waitKey</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+	<span class="n">m_bRun</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">m_key</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">m_bLog</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="n">m_winMouse</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Startup</span><span class="o">::~</span><span class="n">Startup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="n">string</span><span class="o">*</span> <span class="n">Startup</span><span class="o">::</span><span class="n">getName</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="n">m_name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">Startup</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">Kiss</span><span class="o">*</span> <span class="n">pKiss</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">g_pStartup</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+	<span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signalHandler</span><span class="p">);</span>
+
+	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+	<span class="n">NULL_F</span><span class="p">(</span><span class="n">pKiss</span><span class="p">);</span>
+	<span class="n">Kiss</span><span class="o">*</span> <span class="n">pApp</span> <span class="o">=</span> <span class="n">pKiss</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">o</span><span class="p">(</span><span class="s">"APP"</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">empty</span><span class="p">())</span>
+		<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+
+	<span class="n">F_INFO</span><span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">(</span><span class="s">"appName"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_name</span><span class="p">));</span>
+	<span class="n">F_INFO</span><span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">(</span><span class="s">"bWindow"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_bWindow</span><span class="p">));</span>
+	<span class="n">F_INFO</span><span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">(</span><span class="s">"waitKey"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_waitKey</span><span class="p">));</span>
+	<span class="n">F_INFO</span><span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">(</span><span class="s">"winMouse"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_winMouse</span><span class="p">));</span>
+
+	<span class="c1">//create instances
+</span>	<span class="n">F_FATAL_F</span><span class="p">(</span><span class="n">createAllInst</span><span class="p">(</span><span class="n">pKiss</span><span class="p">));</span>
+
+	<span class="c1">//link instances with each other
+</span>	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m_nInst</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">F_FATAL_F</span><span class="p">(</span><span class="n">m_pInst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">link</span><span class="p">());</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="n">m_winMouse</span> <span class="o">!=</span> <span class="s">""</span> <span class="o">&amp;&amp;</span> <span class="n">m_bWindow</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">setMouseCallback</span><span class="p">(</span><span class="n">m_winMouse</span><span class="p">,</span> <span class="n">onMouseGeneral</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="c1">//UI thread
+</span>	<span class="n">m_bRun</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">m_bWindow</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">while</span> <span class="p">(</span><span class="n">m_bRun</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">draw</span><span class="p">();</span>
+			<span class="n">m_key</span> <span class="o">=</span> <span class="n">waitKey</span><span class="p">(</span><span class="n">m_waitKey</span><span class="p">);</span>
+			<span class="n">handleKey</span><span class="p">(</span><span class="n">m_key</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">else</span>
+	<span class="p">{</span>
+		<span class="k">while</span> <span class="p">(</span><span class="n">m_bRun</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">draw</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m_nInst</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">m_pInst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">complete</span><span class="p">();</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m_nInst</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+		<span class="n">DEL</span><span class="p">(</span><span class="n">m_pInst</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
 
 
     <div class="tags">
@@ -405,7 +520,7 @@ git clone https://github.com/yankailab/OpenKAI.git
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 LabRomance. All rights reserved. <br />
- Site last generated: Mar 11, 2017 <br />
+ Site last generated: Mar 13, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
