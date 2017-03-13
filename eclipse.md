@@ -13,7 +13,7 @@ summary: These brief instructions will help you how to start develop OpenKAI app
 ## Prerequisites
 Assume you put all the git repositories inside the "/home/ubuntu/src" directory as in above link,run
 
-```Shell
+```shell
 sudo apt-get install default-jre
 sudo su -c "echo -e '/usr/local/cuda/lib64\n/home/ubuntu/src/jetson-inference/build/x86_64/lib' >> /etc/ld.so.conf"
 sudo ldconfig
@@ -22,7 +22,7 @@ sudo ldconfig
 ## Eclipse install
 Download, extract and launch the latest [Eclipse IDE for C/C++ Developers (CDT)](http://www.eclipse.org/downloads/packages/), 
 
-```Shell
+```shell
 tar xzvf eclipse-cpp-neon-2-linux-gtk-x86_64.tar.gz
 cd eclipse
 sudo ./eclipse
@@ -48,7 +48,7 @@ Make sure both "Debug" and "Release" are checked, and click "Finish"
 
 ## Git clone into eclipse workspace
 Open Terminal and run
-```Shell
+```shell
 cd ~/src/workspace/OpenKAI
 git clone https://github.com/yankailab/OpenKAI.git
 ```
@@ -138,5 +138,117 @@ Click "New launch configuration" icon in the left pane, put a new name and setti
 Click "Apply", "Run" and you are done.
 
 Enjoy.
+
+## Just a test
+Test CPP css
+
+```cpp
+#include "Startup.h"
+
+Startup* g_pStartup;
+void onMouseGeneral(int event, int x, int y, int flags, void* userdata)
+{
+	g_pStartup->handleMouse(event, x, y, flags);
+}
+
+void signalHandler(int signal)
+{
+	if (signal != SIGINT)return;
+	printf("\nSIGINT: Complete\n");
+	g_pStartup->m_bRun = false;
+}
+
+namespace kai
+{
+
+Startup::Startup()
+{
+	for (int i = 0; i < N_INST; i++)
+	{
+		m_pInst[i] = NULL;
+		m_pMouse[i] = NULL;
+	}
+	m_nInst = 0;
+	m_nMouse = 0;
+
+	m_name = "";
+	m_bWindow = true;
+	m_waitKey = 50;
+	m_bRun = true;
+	m_key = 0;
+	m_bLog = true;
+	m_winMouse = "";
+}
+
+Startup::~Startup()
+{
+}
+
+string* Startup::getName(void)
+{
+	return &m_name;
+}
+
+bool Startup::start(Kiss* pKiss)
+{
+	g_pStartup = this;
+	signal(SIGINT, signalHandler);
+
+	int i;
+	NULL_F(pKiss);
+	Kiss* pApp = pKiss->root()->o("APP");
+	if (pApp->empty())
+		return false;
+
+	F_INFO(pApp->v("appName", &m_name));
+	F_INFO(pApp->v("bWindow", &m_bWindow));
+	F_INFO(pApp->v("waitKey", &m_waitKey));
+	F_INFO(pApp->v("winMouse", &m_winMouse));
+
+	//create instances
+	F_FATAL_F(createAllInst(pKiss));
+
+	//link instances with each other
+	for (i = 0; i < m_nInst; i++)
+	{
+		F_FATAL_F(m_pInst[i]->link());
+	}
+
+	if(m_winMouse != "" && m_bWindow)
+	{
+		setMouseCallback(m_winMouse, onMouseGeneral, 0 );
+	}
+
+	//UI thread
+	m_bRun = true;
+
+	if (m_bWindow)
+	{
+		while (m_bRun)
+		{
+			draw();
+			m_key = waitKey(m_waitKey);
+			handleKey(m_key);
+		}
+	}
+	else
+	{
+		while (m_bRun)
+		{
+			draw();
+		}
+	}
+
+	for (i = 0; i < m_nInst; i++)
+	{
+		m_pInst[i]->complete();
+	}
+
+	for (i = 0; i < m_nInst; i++)
+		DEL(m_pInst[i]);
+
+	return 0;
+}
+```
 
 

@@ -10,7 +10,7 @@ summary: These brief instructions will help you build and run OpenKAI on Ubuntu 
 
 ## Prerequisites
 
-```Shell
+```shell
 sudo apt-get update
 sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev libtbb-dev libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf python-scipy python-pip libeigen3-dev default-jre
 ```
@@ -18,7 +18,7 @@ sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base
 ## CUDA
 Download the latest [CUDA](https://developer.nvidia.com/cuda-downloads) and run
 
-```Shell
+```shell
 chmod u+x cuda_8.0.44_linux.run
 ./cuda_8.0.44_linux.run
 sudo echo -e "export PATH=/usr/local/cuda/bin:\$PATH\nexport LD_LIBRARY_PATH=/usr/local/cuda/lib64:\$LD_LIBRARY_PATH" >> ~/.bashrc
@@ -27,7 +27,7 @@ sudo echo -e "export PATH=/usr/local/cuda/bin:\$PATH\nexport LD_LIBRARY_PATH=/us
 ## cuDNN
 Download the latest [cuDNN](https://developer.nvidia.com/cudnn) and run
 
-```Shell
+```shell
 tar xzvf cudnn-8.0-linux-x64-v5.1.tgz
 cd cuda
 sudo cp lib64/lib* /usr/local/cuda/lib64/
@@ -37,7 +37,7 @@ sudo ldconfig
 
 ## Git repositories
 
-```Shell
+```shell
 cd ~
 mkdir src
 cd src
@@ -54,7 +54,7 @@ opencv/modules/core/include/opencv2/core/version.hpp
 
 and replace the following part
 
-```cxx
+```cpp
 #define CV_VERSION_MAJOR    3
 #define CV_VERSION_MINOR    2
 #define CV_VERSION_REVISION 0
@@ -62,7 +62,7 @@ and replace the following part
 
 with
 
-```cxx
+```cpp
 #define CV_VERSION_MAJOR    3
 #define CV_VERSION_MINOR    1
 #define CV_VERSION_REVISION 0
@@ -70,7 +70,7 @@ with
 
 ## Build OpenCV
 
-```Shell
+```shell
 cd ~/src/opencv
 mkdir build
 cd build
@@ -78,7 +78,7 @@ ccmake ../
 ```
 Setup the [build options p1](https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/OpenCV_ccmake_1.png), [build options p2](https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/OpenCV_ccmake_2.png) and
 
-```Shell
+```shell
 make all -j8
 sudo make install
 ```
@@ -86,7 +86,7 @@ sudo make install
 ## ZED
 Download the latest driver from ZED site and run
 
-```Shell
+```shell
 chmod u+x ZED_SDK_Linux_Ubuntu16_CUDA80_v1.2.0.run
 ./ZED_SDK_Linux_Ubuntu16_CUDA80_v1.2.0.run
 ```
@@ -94,7 +94,7 @@ chmod u+x ZED_SDK_Linux_Ubuntu16_CUDA80_v1.2.0.run
 ## TensorRT
 Download and install [TensorRT](https://developer.nvidia.com/tensorrt). If you came across the "Broken package" error, extract the files directly from TensorRT's deb file and copy all the include files and lib files into the correspondent system directories. Optionally, download the [archive]() of the exctracted file from the original .deb package, and run
 
-```Shell
+```shell
 tar xzvf nv-gie_1.0.0-1+cuda8.0_amd64.tar.gz
 cd nv-gie_1.0.0-1+cuda8.0_amd64
 sudo cp -rp libgie1/usr/* /usr/
@@ -114,19 +114,19 @@ set(
 
 Next, replace the following part
 
-```Shell
+```shell
 include_directories(/usr/include/gstreamer-1.0 /usr/lib/aarch64-linux-gnu/gstreamer-1.0/include /usr/include/glib-2.0 /usr/include/libxml2 /usr/lib/aarch64-linux-gnu/glib-2.0/include/)
 ```
 
 with
 
-```Shell
+```shell
 include_directories(/usr/include/gstreamer-1.0 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/include /usr/include/glib-2.0 /usr/include/libxml2 /usr/lib/x86_64-linux-gnu/glib-2.0/include/)
 ```
 
 then
 
-```Shell
+```shell
 cd ~/src/jetson-inference/
 mkdir build
 cd build
@@ -136,7 +136,7 @@ make
 
 ## Build OpenKAI
 
-```Shell
+```shell
 cd ~/src/OpenKAI
 mkdir build
 cd build
@@ -144,6 +144,6 @@ ccmake ../
 ```
 Setup the [build options](https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/OpenKAI_ccmake.png), and
 
-```Shell
+```shell
 make all -j8
 ```
