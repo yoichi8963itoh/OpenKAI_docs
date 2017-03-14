@@ -300,15 +300,19 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="system-architecture">System architecture</h2>
 <p>OpenKAI is organized as a combination of multiple functional Modules. Each Module runs in an individual thread, so that modules can be ran simultaneously over multi-core CPUs efficiently. Each Module contains multiple sub-Modules, each sub-Module may handle certain part of functions divided by its category, and the Module switches between each of its sub-Modules to form a complete function.</p>
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/img/F1.png" alt="OpenKAI Modules" width="600px" />
-</p>
+
+<div style="text-align:center">
+<figure><img class="docimage" src="images/F1.png" alt="OpenKAI Modules" /><figcaption>OpenKAI Modules</figcaption></figure>
+
+</div>
+
 <p>At source code level, each Module and sub-Module is implemented by an individual C++ class. A Module class is inherited from kai::ThreadBase class that handles thread interface and timing control (desired frames per second) etc.</p>
 
 <p>A typical example of Modular designed OpenKAI system for an automatic visual guided landing system is shown below.</p>
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/img/F2.png" alt="OpenKAI autotmatic visual guided landing system diagram" width="800px" />
-</p>
+<div style="text-align:center">
+<figure><img class="docimage" src="images/F2.png" alt="OpenKAI autotmatic visual guided landing system diagram" /><figcaption>OpenKAI autotmatic visual guided landing system diagram</figcaption></figure>
+
+</div>
 <p>Refer <a href="http://ardupilot.org/dev/docs/companion-computer-nvidia-tx1.html">here</a> for hardware connections of the above example, and <a href="https://youtu.be/5AVb2hA2EUs">here</a> is a video showing the example in action.</p>
 
 <p>The overall system implemented by OpenKAI is a single-process multi-threads program. This architecture aims to provide an easy expansion similar to ROS, meanwhile keeping the program to be simple and provide an efficient interface between Modules by eliminating the socket communication in ROS. A reference of currently implemented Modules and sub-Modules will be provided soon.</p>
@@ -337,7 +341,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 LabRomance. All rights reserved. <br />
- Site last generated: Mar 13, 2017 <br />
+ Site last generated: Mar 14, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

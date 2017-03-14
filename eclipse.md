@@ -8,7 +8,7 @@ summary: These brief instructions will help you how to start develop OpenKAI app
 ---
 # Develop OpenKAI apps with Eclipse CDT
 
-{% include note.html content="Firstly complete the setup process following [this guide](https://github.com/yankailab/OpenKAI/blob/master/doc/x86_64/Ubuntu/build.md)"%}
+{% include note.html content="Firstly complete the setup process following [this guide](/x86build.md)"%}
 
 ## Prerequisites
 Assume you put all the git repositories inside the "/home/ubuntu/src" directory as in above link,run
@@ -32,19 +32,20 @@ Following the instruction to setup the worksapce in the first launch of Eclipse.
 
 ## Eclipse project
 Make a new C++ Project in Eclipse
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_newProj1.png" alt="Eclipse ">
-</p>
+
+<div style="text-align:center">
+{% include image.html file="eclipse_newProj1.png" alt="Eclipse" caption="Eclipse new C++ Project" %}
+</div>
 
 Here we assume to use the project name "OpenKAI", check "Use default location" or set the Location as "/home/ubuntu/src/workspace", choose "Empty Project", Toolchains "Linux GCC", and click Next>
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_newProj2.png" alt="Eclipse ">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_newProj2.png" alt="Eclipse" caption="Choose Empty Project" %}
+</div>
 
 Make sure both "Debug" and "Release" are checked, and click "Finish"
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_newProj3.png" alt="Eclipse ">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_newProj3.png" alt="Eclipse" caption="Debug and Release are checked" %}
+</div>
 
 ## Git clone into eclipse workspace
 Open Terminal and run
@@ -55,35 +56,37 @@ git clone https://github.com/yankailab/OpenKAI.git
 
 ## Eclipse project settings
 Back to Eclipse CDT, in the left pane click "OpenKAI" and press F5 key, now you should see there is an "OpenKAI" directory in the project.
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_OpenKAI.png" alt="Eclipse OpenKAI">
-</p>
+
+<div style="text-align:center">
+{% include image.html file="eclipse_OpenKAI.png" alt="Eclipse OpenKAI" caption="OpenKAI directory in the project" %}
+</div>
 
 Right click project "OpenKAI" and click "Properties", click "C/C++ Build", and choose the Configuration to be "[All configurations]". Setup each page as following:
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxBuild.png" alt="Eclipse c++ Build">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_cxxBuild.png" alt="Eclipse C++ Builder Settings" caption="C/C++ Builder Settings" %}
+</div>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxBuildBehavior.png" alt="Eclipse c++ Build Behavior">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_cxxBuildBehavior.png" alt="Eclipse C++ Build Behavior" caption="Eclipse C++ Build Behavior" %}
+</div>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxBuildArtifact.png" alt="Eclipse c++ Build Artifact">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_cxxBuildArtifact.png" alt="Eclipse C++ Build Behavior" caption="Eclipse C++ Build Artifact" %}
+</div>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxDialect.png" alt="Eclipse c++ Dialect">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_cxxDialect.png" alt="Eclipse C++ Dialect" caption="Eclipse C++ Dialect" %}
+</div>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxIncludes.png" alt="Eclipse c++ Includes">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_cxxIncludes.png" alt="Eclipse C++ Includes" caption="Eclipse C++ Includes" %}
+</div>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxLibraries.png" alt="Eclipse c++ Libraries">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_cxxLibraries.png" alt="Eclipse C++ Libraries" caption="Eclipse C++ Libraries" %}
+</div>
+
 
 ### Note:
 If you experienced non-reponding or freezing in Eclipse on Ubuntu 16.04 etc., try to force Eclipse using GTK2 instead of GTK3. Open "/home/ubuntu/src/eclipse/eclipse.ini" and add
@@ -122,133 +125,22 @@ openFile
 
 ## Launch OpenKAI from Eclipse
 Open the run configuration setting by
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_runConfig.png" alt="Eclipse run configuration">
-</p>
+
+<div style="text-align:center">
+{% include image.html file="eclipse_runConfig.png" alt="Eclipse run configuration" caption="Eclipse run configuration" %}
+</div>
 
 Click "New launch configuration" icon in the left pane, put a new name and setting up like following:
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_runConfig2.png" alt="Eclipse run configuration">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_runConfig2.png" alt="Eclipse run configuration" caption="Eclipse run configuration 2" %}
+</div>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_runConfig3.png" alt="Eclipse run configuration">
-</p>
+<div style="text-align:center">
+{% include image.html file="eclipse_runConfig3.png" alt="Eclipse run configuration" caption="Eclipse run configuration 3" %}
+</div>
 
 Click "Apply", "Run" and you are done.
 
 Enjoy.
-
-## Just a test
-Test CPP css
-
-```cpp
-#include "Startup.h"
-
-Startup* g_pStartup;
-void onMouseGeneral(int event, int x, int y, int flags, void* userdata)
-{
-	g_pStartup->handleMouse(event, x, y, flags);
-}
-
-void signalHandler(int signal)
-{
-	if (signal != SIGINT)return;
-	printf("\nSIGINT: Complete\n");
-	g_pStartup->m_bRun = false;
-}
-
-namespace kai
-{
-
-Startup::Startup()
-{
-	for (int i = 0; i < N_INST; i++)
-	{
-		m_pInst[i] = NULL;
-		m_pMouse[i] = NULL;
-	}
-	m_nInst = 0;
-	m_nMouse = 0;
-
-	m_name = "";
-	m_bWindow = true;
-	m_waitKey = 50;
-	m_bRun = true;
-	m_key = 0;
-	m_bLog = true;
-	m_winMouse = "";
-}
-
-Startup::~Startup()
-{
-}
-
-string* Startup::getName(void)
-{
-	return &m_name;
-}
-
-bool Startup::start(Kiss* pKiss)
-{
-	g_pStartup = this;
-	signal(SIGINT, signalHandler);
-
-	int i;
-	NULL_F(pKiss);
-	Kiss* pApp = pKiss->root()->o("APP");
-	if (pApp->empty())
-		return false;
-
-	F_INFO(pApp->v("appName", &m_name));
-	F_INFO(pApp->v("bWindow", &m_bWindow));
-	F_INFO(pApp->v("waitKey", &m_waitKey));
-	F_INFO(pApp->v("winMouse", &m_winMouse));
-
-	//create instances
-	F_FATAL_F(createAllInst(pKiss));
-
-	//link instances with each other
-	for (i = 0; i < m_nInst; i++)
-	{
-		F_FATAL_F(m_pInst[i]->link());
-	}
-
-	if(m_winMouse != "" && m_bWindow)
-	{
-		setMouseCallback(m_winMouse, onMouseGeneral, 0 );
-	}
-
-	//UI thread
-	m_bRun = true;
-
-	if (m_bWindow)
-	{
-		while (m_bRun)
-		{
-			draw();
-			m_key = waitKey(m_waitKey);
-			handleKey(m_key);
-		}
-	}
-	else
-	{
-		while (m_bRun)
-		{
-			draw();
-		}
-	}
-
-	for (i = 0; i < m_nInst; i++)
-	{
-		m_pInst[i]->complete();
-	}
-
-	for (i = 0; i < m_nInst; i++)
-		DEL(m_pInst[i]);
-
-	return 0;
-}
-```
 
 
