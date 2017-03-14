@@ -11,9 +11,9 @@ summary: These brief instructions will help you build and run OpenKAI on NVIDIA 
 ## JetPack install & flash
 Download the latest [JetPack for L4T](https://developer.nvidia.com/embedded/jetpack) and run the installer, choose the following options to be installed and flashed into your Jetson TX1:
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/JetsonTX1/img/JetPackInstall.png" alt="JetPack install option">
-</p>
+<div style="text-align:center">
+{% include image.html file="JetPackInstall.png" alt="JetPack install option" caption="JetPack install option" %}
+</div>
 
 ## Prerequisites
 

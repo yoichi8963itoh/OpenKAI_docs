@@ -255,7 +255,7 @@ $('#toc').on('click', 'a', function() {
 
   <h1 id="develop-openkai-apps-with-eclipse-cdt">Develop OpenKAI apps with Eclipse CDT</h1>
 
-<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Firstly complete the setup process following <a href="https://github.com/yankailab/OpenKAI/blob/master/doc/x86_64/Ubuntu/build.md">this guide</a></div>
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Firstly complete the setup process following <a href="/x86build.html">this guide</a></div>
 
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Assume you put all the git repositories inside the “/home/ubuntu/src” directory as in above link,run</p>
@@ -279,19 +279,23 @@ sudo ./eclipse
 
 <h2 id="eclipse-project">Eclipse project</h2>
 <p>Make a new C++ Project in Eclipse</p>
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_newProj1.png" alt="Eclipse " />
-</p>
+
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_newProj1.png" alt="Eclipse" /><figcaption>Eclipse new C++ Project</figcaption></figure>
+
+</div>
 
 <p>Here we assume to use the project name “OpenKAI”, check “Use default location” or set the Location as “/home/ubuntu/src/workspace”, choose “Empty Project”, Toolchains “Linux GCC”, and click Next&gt;</p>
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_newProj2.png" alt="Eclipse " />
-</p>
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_newProj2.png" alt="Eclipse" /><figcaption>Choose Empty Project</figcaption></figure>
+
+</div>
 
 <p>Make sure both “Debug” and “Release” are checked, and click “Finish”</p>
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_newProj3.png" alt="Eclipse " />
-</p>
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_newProj3.png" alt="Eclipse" /><figcaption>Debug and Release are checked</figcaption></figure>
+
+</div>
 
 <h2 id="git-clone-into-eclipse-workspace">Git clone into eclipse workspace</h2>
 <p>Open Terminal and run</p>
@@ -302,35 +306,43 @@ git clone https://github.com/yankailab/OpenKAI.git
 
 <h2 id="eclipse-project-settings">Eclipse project settings</h2>
 <p>Back to Eclipse CDT, in the left pane click “OpenKAI” and press F5 key, now you should see there is an “OpenKAI” directory in the project.</p>
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_OpenKAI.png" alt="Eclipse OpenKAI" />
-</p>
+
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_OpenKAI.png" alt="Eclipse OpenKAI" /><figcaption>OpenKAI directory in the project</figcaption></figure>
+
+</div>
 
 <p>Right click project “OpenKAI” and click “Properties”, click “C/C++ Build”, and choose the Configuration to be “[All configurations]”. Setup each page as following:</p>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxBuild.png" alt="Eclipse c++ Build" />
-</p>
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_cxxBuild.png" alt="Eclipse C++ Builder Settings" /><figcaption>C/C++ Builder Settings</figcaption></figure>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxBuildBehavior.png" alt="Eclipse c++ Build Behavior" />
-</p>
+</div>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxBuildArtifact.png" alt="Eclipse c++ Build Artifact" />
-</p>
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_cxxBuildBehavior.png" alt="Eclipse C++ Build Behavior" /><figcaption>Eclipse C++ Build Behavior</figcaption></figure>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxDialect.png" alt="Eclipse c++ Dialect" />
-</p>
+</div>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxIncludes.png" alt="Eclipse c++ Includes" />
-</p>
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_cxxBuildArtifact.png" alt="Eclipse C++ Build Behavior" /><figcaption>Eclipse C++ Build Artifact</figcaption></figure>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_cxxLibraries.png" alt="Eclipse c++ Libraries" />
-</p>
+</div>
+
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_cxxDialect.png" alt="Eclipse C++ Dialect" /><figcaption>Eclipse C++ Dialect</figcaption></figure>
+
+</div>
+
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_cxxIncludes.png" alt="Eclipse C++ Includes" /><figcaption>Eclipse C++ Includes</figcaption></figure>
+
+</div>
+
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_cxxLibraries.png" alt="Eclipse C++ Libraries" /><figcaption>Eclipse C++ Libraries</figcaption></figure>
+
+</div>
 
 <h3 id="note">Note:</h3>
 <p>If you experienced non-reponding or freezing in Eclipse on Ubuntu 16.04 etc., try to force Eclipse using GTK2 instead of GTK3. Open “/home/ubuntu/src/eclipse/eclipse.ini” and add</p>
@@ -369,134 +381,26 @@ git clone https://github.com/yankailab/OpenKAI.git
 
 <h2 id="launch-openkai-from-eclipse">Launch OpenKAI from Eclipse</h2>
 <p>Open the run configuration setting by</p>
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_runConfig.png" alt="Eclipse run configuration" />
-</p>
+
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_runConfig.png" alt="Eclipse run configuration" /><figcaption>Eclipse run configuration</figcaption></figure>
+
+</div>
 
 <p>Click “New launch configuration” icon in the left pane, put a new name and setting up like following:</p>
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_runConfig2.png" alt="Eclipse run configuration" />
-</p>
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_runConfig2.png" alt="Eclipse run configuration" /><figcaption>Eclipse run configuration 2</figcaption></figure>
 
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/x86_64/Ubuntu/img/eclipse_runConfig3.png" alt="Eclipse run configuration" />
-</p>
+</div>
+
+<div style="text-align:center">
+<figure><img class="docimage" src="images/eclipse_runConfig3.png" alt="Eclipse run configuration" /><figcaption>Eclipse run configuration 3</figcaption></figure>
+
+</div>
 
 <p>Click “Apply”, “Run” and you are done.</p>
 
 <p>Enjoy.</p>
-
-<h2 id="just-a-test">Just a test</h2>
-<p>Test CPP css</p>
-
-<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cp">#include "Startup.h"
-</span>
-<span class="n">Startup</span><span class="o">*</span> <span class="n">g_pStartup</span><span class="p">;</span>
-<span class="kt">void</span> <span class="nf">onMouseGeneral</span><span class="p">(</span><span class="kt">int</span> <span class="n">event</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">userdata</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">g_pStartup</span><span class="o">-&gt;</span><span class="n">handleMouse</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">flags</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">signalHandler</span><span class="p">(</span><span class="kt">int</span> <span class="n">signal</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">signal</span> <span class="o">!=</span> <span class="n">SIGINT</span><span class="p">)</span><span class="k">return</span><span class="p">;</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">SIGINT: Complete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="n">g_pStartup</span><span class="o">-&gt;</span><span class="n">m_bRun</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="k">namespace</span> <span class="n">kai</span>
-<span class="p">{</span>
-
-<span class="n">Startup</span><span class="o">::</span><span class="n">Startup</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N_INST</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">m_pInst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-		<span class="n">m_pMouse</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">m_nInst</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">m_nMouse</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-	<span class="n">m_name</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
-	<span class="n">m_bWindow</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="n">m_waitKey</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-	<span class="n">m_bRun</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="n">m_key</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">m_bLog</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="n">m_winMouse</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="n">Startup</span><span class="o">::~</span><span class="n">Startup</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="p">}</span>
-
-<span class="n">string</span><span class="o">*</span> <span class="n">Startup</span><span class="o">::</span><span class="n">getName</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="n">m_name</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">bool</span> <span class="n">Startup</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">Kiss</span><span class="o">*</span> <span class="n">pKiss</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">g_pStartup</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-	<span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signalHandler</span><span class="p">);</span>
-
-	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-	<span class="n">NULL_F</span><span class="p">(</span><span class="n">pKiss</span><span class="p">);</span>
-	<span class="n">Kiss</span><span class="o">*</span> <span class="n">pApp</span> <span class="o">=</span> <span class="n">pKiss</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">o</span><span class="p">(</span><span class="s">"APP"</span><span class="p">);</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">empty</span><span class="p">())</span>
-		<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-
-	<span class="n">F_INFO</span><span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">(</span><span class="s">"appName"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_name</span><span class="p">));</span>
-	<span class="n">F_INFO</span><span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">(</span><span class="s">"bWindow"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_bWindow</span><span class="p">));</span>
-	<span class="n">F_INFO</span><span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">(</span><span class="s">"waitKey"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_waitKey</span><span class="p">));</span>
-	<span class="n">F_INFO</span><span class="p">(</span><span class="n">pApp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">(</span><span class="s">"winMouse"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_winMouse</span><span class="p">));</span>
-
-	<span class="c1">//create instances
-</span>	<span class="n">F_FATAL_F</span><span class="p">(</span><span class="n">createAllInst</span><span class="p">(</span><span class="n">pKiss</span><span class="p">));</span>
-
-	<span class="c1">//link instances with each other
-</span>	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m_nInst</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">F_FATAL_F</span><span class="p">(</span><span class="n">m_pInst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">link</span><span class="p">());</span>
-	<span class="p">}</span>
-
-	<span class="k">if</span><span class="p">(</span><span class="n">m_winMouse</span> <span class="o">!=</span> <span class="s">""</span> <span class="o">&amp;&amp;</span> <span class="n">m_bWindow</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">setMouseCallback</span><span class="p">(</span><span class="n">m_winMouse</span><span class="p">,</span> <span class="n">onMouseGeneral</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-	<span class="p">}</span>
-
-	<span class="c1">//UI thread
-</span>	<span class="n">m_bRun</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-
-	<span class="k">if</span> <span class="p">(</span><span class="n">m_bWindow</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="k">while</span> <span class="p">(</span><span class="n">m_bRun</span><span class="p">)</span>
-		<span class="p">{</span>
-			<span class="n">draw</span><span class="p">();</span>
-			<span class="n">m_key</span> <span class="o">=</span> <span class="n">waitKey</span><span class="p">(</span><span class="n">m_waitKey</span><span class="p">);</span>
-			<span class="n">handleKey</span><span class="p">(</span><span class="n">m_key</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="k">else</span>
-	<span class="p">{</span>
-		<span class="k">while</span> <span class="p">(</span><span class="n">m_bRun</span><span class="p">)</span>
-		<span class="p">{</span>
-			<span class="n">draw</span><span class="p">();</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m_nInst</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">m_pInst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">complete</span><span class="p">();</span>
-	<span class="p">}</span>
-
-	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m_nInst</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-		<span class="n">DEL</span><span class="p">(</span><span class="n">m_pInst</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-</div>
 
 
 
@@ -520,7 +424,7 @@ git clone https://github.com/yankailab/OpenKAI.git
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 LabRomance. All rights reserved. <br />
- Site last generated: Mar 13, 2017 <br />
+ Site last generated: Mar 14, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

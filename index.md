@@ -50,15 +50,17 @@ If the existing function Modules from OpenKAI already meet your needs, you can w
 
 ## System architecture
 OpenKAI is organized as a combination of multiple functional Modules. Each Module runs in an individual thread, so that modules can be ran simultaneously over multi-core CPUs efficiently. Each Module contains multiple sub-Modules, each sub-Module may handle certain part of functions divided by its category, and the Module switches between each of its sub-Modules to form a complete function.
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/img/F1.png" alt="OpenKAI Modules" width="600px">
-</p>
+
+<div style="text-align:center">
+{% include image.html file="F1.png" alt="OpenKAI Modules" caption="OpenKAI Modules" %}
+</div>
+
 At source code level, each Module and sub-Module is implemented by an individual C++ class. A Module class is inherited from kai::ThreadBase class that handles thread interface and timing control (desired frames per second) etc.
 
 A typical example of Modular designed OpenKAI system for an automatic visual guided landing system is shown below.
-<p align="center">
-<img src="https://github.com/yankailab/OpenKAI/raw/master/doc/img/F2.png" alt="OpenKAI autotmatic visual guided landing system diagram" width="800px">
-</p>
+<div style="text-align:center">
+{% include image.html file="F2.png" alt="OpenKAI autotmatic visual guided landing system diagram" caption="OpenKAI autotmatic visual guided landing system diagram" %}
+</div>
 Refer [here](http://ardupilot.org/dev/docs/companion-computer-nvidia-tx1.html) for hardware connections of the above example, and [here](https://youtu.be/5AVb2hA2EUs) is a video showing the example in action.
 
 The overall system implemented by OpenKAI is a single-process multi-threads program. This architecture aims to provide an easy expansion similar to ROS, meanwhile keeping the program to be simple and provide an efficient interface between Modules by eliminating the socket communication in ROS. A reference of currently implemented Modules and sub-Modules will be provided soon.
