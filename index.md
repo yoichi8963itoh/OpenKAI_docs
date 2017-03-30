@@ -23,13 +23,11 @@ OpenKAI is supposed to behave as a companion computer that commands an external 
 ## Sample apps
 Visual obstacle avoidance using ZED camera and Pixhawk (APMcopter 3.5-dev and above).
 
-On-board camera (Click to jump to YouTube):
+On-board camera:
+<iframe width="640" height="360" src="https://www.youtube.com/embed/MOFullt5k3g"> </iframe>
 
-[![APMcopter+OpenKAI+ZED: visual obstacle avoidance](https://img.youtube.com/vi/MOFullt5k3g/0.jpg)](https://www.youtube.com/watch?v=MOFullt5k3g)
-
-External camera (Click to jump to YouTube):
-
-[![APMcopter+OpenKAI+ZED: visual obstacle avoidance](https://img.youtube.com/vi/qk_hEtRASqg/0.jpg)](https://www.youtube.com/watch?v=qk_hEtRASqg)
+External camera:
+<iframe width="640" height="360" src="https://www.youtube.com/embed/qk_hEtRASqg"> </iframe>
 
 
 ## Build & Run
