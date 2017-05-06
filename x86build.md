@@ -1,10 +1,10 @@
 ---
-title: Installation for Ubuntu 16.04LTS on x86_64 systems
-keywords: Ubuntu 16.04LTS
-tags: [Ubuntu 16.04LTS]
+title: Installation for Ubuntu 16.04 LTS on x86_64 systems
+keywords: Ubuntu 16.04 LTS
+tags: [Ubuntu 16.04 LTS]
 sidebar: openkai
 permalink: x86build.html
-summary: These brief instructions will help you build and run OpenKAI on Ubuntu 16.04LTS on x86_64 systems
+summary: These brief instructions will help you build and run OpenKAI on Ubuntu 16.04 LTS on x86_64 systems, tested on Ubuntu Desktop 16.04.2
 ---
 # Installation for Ubuntu 16.04LTS on x86_64 systems
 
@@ -12,16 +12,17 @@ summary: These brief instructions will help you build and run OpenKAI on Ubuntu 
 
 ```shell
 sudo apt-get update
-sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev libtbb-dev libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf python-scipy python-pip libeigen3-dev default-jre
+sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtbb-dev libqt4-dev libtheora-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf python-scipy python-pip libeigen3-dev
 ```
 
 ## CUDA
 Download the latest [CUDA](https://developer.nvidia.com/cuda-downloads) and run
 
 ```shell
-chmod u+x cuda_8.0.44_linux.run
-./cuda_8.0.44_linux.run
+chmod u+x cuda_8.0.61_375.26_linux.run
+./cuda_8.0.61_375.26_linux.run
 sudo echo -e "export PATH=/usr/local/cuda/bin:\$PATH\nexport LD_LIBRARY_PATH=/usr/local/cuda/lib64:\$LD_LIBRARY_PATH" >> ~/.bashrc
+bash
 ```
 
 ## cuDNN
@@ -87,8 +88,8 @@ sudo make install
 Download the latest driver from ZED site and run
 
 ```shell
-chmod u+x ZED_SDK_Linux_Ubuntu16_CUDA80_v1.2.0.run
-./ZED_SDK_Linux_Ubuntu16_CUDA80_v1.2.0.run
+chmod u+x ZED_SDK_Linux_Ubuntu16_v2.0.0.run
+./ZED_SDK_Linux_Ubuntu16_v2.0.0.run
 ```
 
 ## TensorRT
