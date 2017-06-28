@@ -88,8 +88,8 @@ sudo make install
 Download the latest driver from ZED site and run
 
 ```shell
-chmod u+x ZED_SDK_Linux_Ubuntu16_v2.0.0.run
-./ZED_SDK_Linux_Ubuntu16_v2.0.0.run
+chmod u+x ZED_SDK_Linux_Ubuntu16_v2.0.1.run
+./ZED_SDK_Linux_Ubuntu16_v2.0.1.run
 ```
 
 ## TensorRT

@@ -6,7 +6,7 @@ sidebar: openkai
 permalink: tx1build.html
 summary: These brief instructions will help you build and run OpenKAI on NVIDIA Jetson TX1
 ---
-# Build & Run on NVIDIA Jetson TX1 (Ubuntu 16.04LTS / JetPack2.3.1)
+# Build & Run on NVIDIA Jetson TX1 (Ubuntu 16.04LTS / JetPack3.0)
 
 ## JetPack install & flash
 Download the latest [JetPack for L4T](https://developer.nvidia.com/embedded/jetpack) and run the installer, choose the following options to be installed and flashed into your Jetson TX1:
@@ -36,8 +36,8 @@ git clone https://github.com/yankailab/OpenKAI.git
 Download the latest driver from ZED site and run
 
 ```shell
-chmod u+x ZED_SDK_Linux_JTX1_v1.2.0_64b_JetPack23.run
-./ZED_SDK_Linux_JTX1_v1.2.0_64b_JetPack23.run
+chmod u+x ZED_SDK_Linux_JTX1_v2.0.1.run
+./ZED_SDK_Linux_JTX1_v2.0.1.run
 ```
 
 ## jetson-inference
@@ -64,7 +64,7 @@ make all -j4
 
 ```shell
 cd ~/src/OpenKAI/build
-sudo ./OpenKAI /home/ubuntu/src/OpenKAI/kiss/apmCopter.kiss
+sudo ./OpenKAI /home/ubuntu/src/OpenKAI/kiss/apCopter.kiss
 ```
 
 "apmCopter.kiss" part is the configuration script for each OpenKAI application, replace it to your own kiss file.
