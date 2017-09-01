@@ -15,6 +15,18 @@ sudo apt-get update
 sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtbb-dev libqt4-dev libtheora-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf python-scipy python-pip libeigen3-dev
 ```
 
+## Update Eigen
+
+```shell
+wget --no-check-certificate http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz
+tar xzvf 3.3.4.tar.gz
+cd eigen
+mkdir build
+cd build
+cmake ../
+sudo make install
+```
+
 ## CUDA
 Download the latest [CUDA](https://developer.nvidia.com/cuda-downloads) and run
 
@@ -36,16 +48,14 @@ sudo cp include/* /usr/local/cuda/include/
 sudo ldconfig
 ```
 
-## Git repositories
+## TensorRT
+Download and install [TensorRT](https://developer.nvidia.com/tensorrt). If you came across the "Broken package" error, extract the files directly from TensorRT's deb file and copy all the include files and lib files into the correspondent system directories. Optionally, download the [archive]() of the exctracted file from the original .deb package, and run
 
 ```shell
-cd ~
-mkdir src
-cd src
-git clone https://github.com/Itseez/opencv.git
-git clone https://github.com/Itseez/opencv_contrib.git
-git clone https://github.com/dusty-nv/jetson-inference.git
-git clone https://github.com/yankailab/OpenKAI.git
+tar xzvf nv-gie_1.0.0-1+cuda8.0_amd64.tar.gz
+cd nv-gie_1.0.0-1+cuda8.0_amd64
+sudo cp -rp libgie1/usr/* /usr/
+sudo cp -rp libgie-dev/usr/* /usr/
 ```
 
 ## (Optional) Edit OpenCV
@@ -72,7 +82,9 @@ with
 ## Build OpenCV
 
 ```shell
-cd ~/src/opencv
+git clone https://github.com/Itseez/opencv.git
+git clone https://github.com/Itseez/opencv_contrib.git
+cd opencv
 mkdir build
 cd build
 ccmake ../
@@ -80,29 +92,53 @@ ccmake ../
 Setup the [build options p1](/images/OpenCV_ccmake_1.png), [build options p2](/images/OpenCV_ccmake_2.png) and
 
 ```shell
-make all -j8
+make all -j
 sudo make install
 ```
 
-## ZED
-Download the latest driver from ZED site and run
+## (Optional) Install ZED driver
 
 ```shell
-chmod u+x ZED_SDK_Linux_Ubuntu16_v2.0.1.run
-./ZED_SDK_Linux_Ubuntu16_v2.0.1.run
+wget --no-check-certificate https://www.stereolabs.com/developers/downloads/ZED_SDK_Linux_Ubuntu16_v2.1.2.run
+chmod u+x ZED_SDK_Linux_Ubuntu16_v2.1.2.run
+./ZED_SDK_Linux_Ubuntu16_v2.1.2.run
 ```
 
-## TensorRT
-Download and install [TensorRT](https://developer.nvidia.com/tensorrt). If you came across the "Broken package" error, extract the files directly from TensorRT's deb file and copy all the include files and lib files into the correspondent system directories. Optionally, download the [archive]() of the exctracted file from the original .deb package, and run
+## Pangolin (Needed by ORB_SLAM2)
 
 ```shell
-tar xzvf nv-gie_1.0.0-1+cuda8.0_amd64.tar.gz
-cd nv-gie_1.0.0-1+cuda8.0_amd64
-sudo cp -rp libgie1/usr/* /usr/
-sudo cp -rp libgie-dev/usr/* /usr/
+git clone https://github.com/yankailab/Pangolin.git
+cd Pangolin
+mkdir build
+cd build
+cmake ..
+cmake --build .
+sudo make install
+```
+
+## ORB_SLAM2
+
+GPU version:
+```shell
+git clone https://github.com/yankailab/orb_slam2_gpu.git
+cd orb_slam2_gpu
+chmod +x build.sh
+./build.sh
+```
+
+CPU version:
+```shell
+git clone https://github.com/yankailab/orb_slam2.git
+cd orb_slam2
+chmod +x build.sh
+./build.sh
 ```
 
 ## jetson-inference
+```shell
+git clone https://github.com/dusty-nv/jetson-inference.git
+```
+
 Open the CMakeLists.txt in jetson-inference directory and replace the CUDA compute ability version in the following part with your own [CUDA device'](https://en.wikipedia.org/wiki/CUDA#GPUs_supported)
 
 ```cmake
@@ -128,17 +164,18 @@ include_directories(/usr/include/gstreamer-1.0 /usr/lib/x86_64-linux-gnu/gstream
 then
 
 ```shell
-cd ~/src/jetson-inference/
+cd jetson-inference/
 mkdir build
 cd build
 cmake ../
-make
+make -j
 ```
 
 ## Build OpenKAI
 
 ```shell
-cd ~/src/OpenKAI
+git clone https://github.com/yankailab/OpenKAI.git
+cd OpenKAI
 mkdir build
 cd build
 ccmake ../
@@ -146,5 +183,5 @@ ccmake ../
 Setup the [build options](/images/OpenKAI_ccmake.png), and
 
 ```shell
-make all -j8
+make all -j
 ```
