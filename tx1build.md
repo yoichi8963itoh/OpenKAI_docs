@@ -11,6 +11,7 @@ summary: These brief instructions will help you build and run OpenKAI on NVIDIA 
 ## JetPack install & flash
 Download the latest [JetPack](https://developer.nvidia.com/embedded/jetpack) and run the installer, choose the following options to be installed and flashed into your Jetson TX1/TX2:
 
+```
 Package                                                Action
 >── Target - Jetson TX1/TX2
     >── Linux for Tegra Host Side Image Setup..........no action
@@ -25,7 +26,7 @@ Package                                                Action
         >── OpenCV for Tegra...........................no action
         >── Multimedia API package.....................no action
         >── cuDNN Package..............................install
-
+```
 
 <div style="text-align:center">
 {% include image.html file="JetPackInstall.png" alt="JetPack install option" caption="JetPack install option" %}
@@ -53,7 +54,6 @@ sudo make install
 ## Install OpenCV (3.1.0 or latest version)
 
 ```shell
-cd ~
 git clone https://github.com/opencv/opencv.git
 git clone https://github.com/opencv/opencv_contrib.git
 cd ~/opencv
@@ -67,7 +67,6 @@ sudo make install
 ## Pangolin (Needed by ORB_SLAM2)
 
 ```shell
-cd ~
 git clone https://github.com/yankailab/Pangolin.git
 cd Pangolin
 mkdir build
@@ -81,7 +80,6 @@ sudo make install
 
 GPU version:
 ```shell
-cd ~
 git clone https://github.com/yankailab/orb_slam2_gpu.git
 cd orb_slam2_gpu
 chmod +x build.sh
@@ -90,7 +88,6 @@ chmod +x build.sh
 
 CPU version:
 ```shell
-cd ~
 git clone https://github.com/yankailab/orb_slam2.git
 cd orb_slam2
 chmod +x build.sh
@@ -100,7 +97,6 @@ chmod +x build.sh
 ## Jetson-inference
 
 ```shell
-cd ~
 git clone https://github.com/dusty-nv/jetson-inference.git
 cd jetson-inference/
 mkdir build
@@ -128,7 +124,6 @@ chmod u+x ZED_SDK_Linux_JTX2_v2.2.0.run
 ## Build OpenKAI
 
 ```shell
-cd ~
 git clone https://github.com/yankailab/OpenKAI.git
 cd OpenKAI
 mkdir build
