@@ -11,22 +11,21 @@ summary: These brief instructions will help you build and run OpenKAI on NVIDIA 
 ## JetPack install & flash
 Download the latest [JetPack](https://developer.nvidia.com/embedded/jetpack) and run the installer, choose the following options to be installed and flashed into your Jetson TX1/TX2:
 
-```
-Package                                                 Action
-+── Target - Jetson TX1/TX2
-    +── Linux for Tegra Host Side Image Setup..........no action
-    │   +── ...
-    +── Flash OS Image to Target.......................install
-    +── Install on Target
-        +── VisionWorks Pack...........................no action
-        │   +── ...
-        +── CUDA Toolkit...............................install
-        +── Compile CUDA Samples.......................no action
-        +── TensorRT...................................install
-        +── OpenCV for Tegra...........................no action
-        +── Multimedia API package.....................no action
-        +── cuDNN Package..............................install
-```
+Package                                                Action
+>── Target - Jetson TX1/TX2
+    >── Linux for Tegra Host Side Image Setup..........no action
+    │   >── ...
+    >── Flash OS Image to Target.......................install
+    >── Install on Target
+        >── VisionWorks Pack...........................no action
+        │   >── ...
+        >── CUDA Toolkit...............................install
+        >── Compile CUDA Samples.......................no action
+        >── TensorRT...................................install
+        >── OpenCV for Tegra...........................no action
+        >── Multimedia API package.....................no action
+        >── cuDNN Package..............................install
+
 
 <div style="text-align:center">
 {% include image.html file="JetPackInstall.png" alt="JetPack install option" caption="JetPack install option" %}
