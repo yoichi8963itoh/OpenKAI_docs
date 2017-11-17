@@ -1,7 +1,6 @@
 #!/bin/bash
 # License: Free
 # Copyright(c) enRouteLAB (2017)
-cd $HOME
 
 # Install Prerequisites
 sudo apt-get update
@@ -16,7 +15,6 @@ sudo rm -r cudnn
 cd $HOME
 mkdir src
 
-
 # Update Eigen
 cd $HOME/src
 wget --no-check-certificate http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz
@@ -27,7 +25,6 @@ mkdir build
 cd build
 cmake ../
 sudo make install
-
 
 # Install OpenCV for Jetson TX1
 cd $HOME/src
