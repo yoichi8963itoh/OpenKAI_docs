@@ -43,14 +43,10 @@ Download [cuDNN v7.0 for CUDA 8.0](https://developer.nvidia.com/cudnn), follow t
 ## TensorRT
 Download and install [TensorRT 2.1](https://developer.nvidia.com/tensorrt), follow the Quick Start Instructions, install with the deb file(more easier). 
 
-Attention: Should be TensorRT 2.1, TensorRT 3.0 is not stable.
+Attention: Should be TensorRT 2.1, TensorRT 3.0 is not stable for the moment.
 
 ## (Optional) Edit OpenCV
-If you are going to use ZED camera with OpenKAI, the latest ZED driver (v2.2.0) is built with OpenCV3.1, however, the latest OpenCV git marks the version with 3.3.1, which may brings difficulties in linking OpenCV .so files. A simple work-around is to change the version definition in the OpenCV repository. Open
-
-opencv/modules/core/include/opencv2/core/version.hpp
-
-and replace the following part
+If you are going to use ZED camera with OpenKAI, the latest ZED driver (v2.2.0) is built with OpenCV3.1, however, the latest OpenCV git marks the version with 3.3.1, which may brings difficulties in linking OpenCV .so files. A simple work-around is to change the version definition in the OpenCV repository. Open opencv/modules/core/include/opencv2/core/version.hpp and replace the following part:
 
 ```cpp
 #define CV_VERSION_MAJOR    3
@@ -127,7 +123,7 @@ chmod +x build.sh
 git clone https://github.com/dusty-nv/jetson-inference.git
 ```
 
-Open the CMakeLists.txt in jetson-inference directory and replace the CUDA compute ability version in the following part with your own [CUDA device'](https://en.wikipedia.org/wiki/CUDA#GPUs_supported). For example, if you are using Nvidia GeForce GTX 1060, then the compute capability version is 6.1, so change to: arch=compute_61,code=sm_61: 
+Open the CMakeLists.txt in jetson-inference directory and replace the CUDA compute ability version in the following part with your own [CUDA device](https://en.wikipedia.org/wiki/CUDA#GPUs_supported). For example, if you are using Nvidia GeForce GTX 1060, then the compute capability version is 6.1, so change to: arch=compute_61,code=sm_61: 
 
 ```cmake
 set(
