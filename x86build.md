@@ -4,7 +4,7 @@ keywords: Ubuntu 16.04 LTS
 tags: [Ubuntu 16.04 LTS]
 sidebar: openkai
 permalink: x86build.html
-summary: These brief instructions will help you build and run OpenKAI on Ubuntu 16.04 LTS on x86_64 systems, tested on Ubuntu Desktop 16.04.2
+summary: These brief instructions will help you build and run OpenKAI on Ubuntu 16.04 LTS on x86_64 systems, tested on Ubuntu Desktop 16.04.3
 ---
 # Installation for Ubuntu 16.04LTS on x86_64 systems
 
@@ -28,47 +28,30 @@ sudo make install
 ```
 
 ## CUDA
-Download the latest [CUDA](https://developer.nvidia.com/cuda-downloads) and run
+Download [CUDA 8.0](https://developer.nvidia.com/cuda-toolkit-archive), follow the “CUDA_Quick_Start_Guid.pdf”, install with the deb file(more easier), and test with the examples in /NVIDIA_CUDA-8.0_Samples.
+
+If you want to change the PATH permanently,run:
 
 ```shell
-chmod u+x cuda_8.0.61_375.26_linux.run
-./cuda_8.0.61_375.26_linux.run
-sudo echo -e "export PATH=/usr/local/cuda/bin:\$PATH\nexport LD_LIBRARY_PATH=/usr/local/cuda/lib64:\$LD_LIBRARY_PATH" >> ~/.bashrc
-bash
+sudo echo -e "export PATH=/usr/local/cuda-8.0/bin:\$PATH\nexport LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:\$LD_LIBRARY_PATH" >> ~/.bashrc
 ```
+Attention: It should be CUDA 8.0, CUDA 9.0 will cause some error later.
 
 ## cuDNN
-Download the latest [cuDNN](https://developer.nvidia.com/cudnn) and run
-
-```shell
-tar xzvf cudnn-8.0-linux-x64-v5.1.tgz
-cd cuda
-sudo cp lib64/lib* /usr/local/cuda/lib64/
-sudo cp include/* /usr/local/cuda/include/
-sudo ldconfig
-```
+Download [cuDNN v7.0 for CUDA 8.0](https://developer.nvidia.com/cudnn), follow the “CUDNN Installation Guide”, install with the deb file(more easier), and test with the examples.
 
 ## TensorRT
-Download and install [TensorRT](https://developer.nvidia.com/tensorrt). If you came across the "Broken package" error, extract the files directly from TensorRT's deb file and copy all the include files and lib files into the correspondent system directories. Optionally, download the [archive]() of the exctracted file from the original .deb package, and run
+Download and install [TensorRT 2.1](https://developer.nvidia.com/tensorrt), follow the Quick Start Instructions, install with the deb file(more easier). 
 
-```shell
-tar xzvf nv-gie_1.0.0-1+cuda8.0_amd64.tar.gz
-cd nv-gie_1.0.0-1+cuda8.0_amd64
-sudo cp -rp libgie1/usr/* /usr/
-sudo cp -rp libgie-dev/usr/* /usr/
-```
+Attention: Should be TensorRT 2.1, TensorRT 3.0 is not stable for the moment.
 
 ## (Optional) Edit OpenCV
-If you are going to use ZED camera with OpenKAI, the latest ZED driver (v1.2) is built with OpenCV3.1, however, the latest OpenCV git marks the version with 3.2, which may brings difficulties in linking OpenCV .so files. A simple work-around is to change the version definition in the OpenCV repository. Open
-
-opencv/modules/core/include/opencv2/core/version.hpp
-
-and replace the following part
+If you are going to use ZED camera with OpenKAI, the latest ZED driver (v2.2.0) is built with OpenCV3.1, however, the latest OpenCV git marks the version with 3.3.1, which may brings difficulties in linking OpenCV .so files. A simple work-around is to change the version definition in the OpenCV repository. Open opencv/modules/core/include/opencv2/core/version.hpp and replace the following part:
 
 ```cpp
 #define CV_VERSION_MAJOR    3
-#define CV_VERSION_MINOR    2
-#define CV_VERSION_REVISION 0
+#define CV_VERSION_MINOR    3
+#define CV_VERSION_REVISION 1
 ```
 
 with
@@ -98,10 +81,11 @@ sudo make install
 
 ## (Optional) Install ZED driver
 
+Go to the [ZED driver site](https://www.stereolabs.com/developers/downloads/) and download the related version, and run:
+
 ```shell
-wget --no-check-certificate https://www.stereolabs.com/developers/downloads/ZED_SDK_Linux_Ubuntu16_v2.1.2.run
-chmod u+x ZED_SDK_Linux_Ubuntu16_v2.1.2.run
-./ZED_SDK_Linux_Ubuntu16_v2.1.2.run
+chmod u+x <ZED_SDK_Linux_Ubuntu16_YOUR_VERSION.run>
+./<ZED_SDK_Linux_Ubuntu16_YOUR_VERSION.run>
 ```
 
 ## Pangolin (Needed by ORB_SLAM2)
@@ -139,13 +123,13 @@ chmod +x build.sh
 git clone https://github.com/dusty-nv/jetson-inference.git
 ```
 
-Open the CMakeLists.txt in jetson-inference directory and replace the CUDA compute ability version in the following part with your own [CUDA device'](https://en.wikipedia.org/wiki/CUDA#GPUs_supported)
+Open the CMakeLists.txt in jetson-inference directory and replace the CUDA compute ability version in the following part with your own [CUDA device](https://en.wikipedia.org/wiki/CUDA#GPUs_supported). For example, if you are using Nvidia GeForce GTX 1060, then the compute capability version is 6.1, so change to: arch=compute_61,code=sm_61: 
 
 ```cmake
 set(
 	CUDA_NVCC_FLAGS
 	${CUDA_NVCC_FLAGS}; 
-    -O3 -gencode arch=compute_53,code=sm_53
+    -O3 -gencode arch=compute_61,code=sm_61
 )
 ```
 
