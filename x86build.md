@@ -33,7 +33,10 @@ Download [CUDA 8.0](https://developer.nvidia.com/cuda-toolkit-archive), follow t
 If you want to change the PATH permanently,run:
 
 ```shell
+chmod u+x cuda_8.0.61_375.26_linux.run
+./cuda_8.0.61_375.26_linux.run
 sudo echo -e "export PATH=/usr/local/cuda-8.0/bin:\$PATH\nexport LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:\$LD_LIBRARY_PATH" >> ~/.bashrc
+bash
 ```
 Attention: It should be CUDA 8.0, CUDA 9.0 will cause some error later.
 
@@ -86,8 +89,8 @@ with
 ## Build OpenCV
 
 ```shell
-git clone https://github.com/Itseez/opencv.git
-git clone https://github.com/Itseez/opencv_contrib.git
+git clone https://github.com/opencv/opencv.git
+git clone https://github.com/opencv/opencv_contrib.git
 cd opencv
 mkdir build
 cd build
