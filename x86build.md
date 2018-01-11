@@ -40,10 +40,31 @@ Attention: It should be CUDA 8.0, CUDA 9.0 will cause some error later.
 ## cuDNN
 Download [cuDNN v7.0 for CUDA 8.0](https://developer.nvidia.com/cudnn), follow the “CUDNN Installation Guide”, install with the deb file(more easier), and test with the examples.
 
+To install from tar, run
+
+```shell
+tar xzvf cudnn-8.0-linux-x64-v7.tgz
+cd cuda
+sudo cp lib64/lib* /usr/local/cuda/lib64/
+sudo cp include/* /usr/local/cuda/include/
+sudo ldconfig
+```
+
 ## TensorRT
 Download and install [TensorRT 2.1](https://developer.nvidia.com/tensorrt), follow the Quick Start Instructions, install with the deb file(more easier). 
 
 Attention: Should be TensorRT 2.1, TensorRT 3.0 is not stable for the moment.
+
+To install manually from tar, run
+
+```shell
+tar xf TensorRT-2.1.2.x86_64.cuda-8.0-16-04.tar.bz2
+cd TensorRT-2.1.2/
+sudo cp -rp lib/* /usr/local/lib/
+sudo cp -rp include/* /usr/local/include/
+sudo cp -rp bin/* /usr/local/bin/
+sudo cp -rp targets/x86_64-linux-gnu/* /usr/libx86_64-linux-gnu/
+```
 
 ## (Optional) Edit OpenCV
 If you are going to use ZED camera with OpenKAI, the latest ZED driver (v2.2.0) is built with OpenCV3.1, however, the latest OpenCV git marks the version with 3.3.1, which may brings difficulties in linking OpenCV .so files. A simple work-around is to change the version definition in the OpenCV repository. Open opencv/modules/core/include/opencv2/core/version.hpp and replace the following part:
