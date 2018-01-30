@@ -12,7 +12,7 @@ summary: These brief instructions will help you build and run OpenKAI on Ubuntu 
 
 ```shell
 sudo apt-get update
-sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtbb-dev libqt4-dev libtheora-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf python-scipy python-pip libeigen3-dev uuid-dev libusb-1.0-0-dev libudev-dev
+sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtbb-dev libqt4-dev libtheora-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf python-scipy python-pip libeigen3-dev uuid-dev libusb-1.0-0-dev libudev-dev gstreamer1.0 gstreamer1.0-tools gstreamer1.0-plugins-ugly
 ```
 
 ## Update Eigen
@@ -142,9 +142,9 @@ chmod +x build.sh
 ./build.sh
 ```
 
-## jetson-inference
+## jetson-inference-batch
 ```shell
-git clone https://github.com/dusty-nv/jetson-inference.git
+git clone https://github.com/yankailab/jetson-inference-batch.git
 ```
 
 Open the CMakeLists.txt in jetson-inference directory and replace the CUDA compute ability version in the following part with your own [CUDA device](https://en.wikipedia.org/wiki/CUDA#GPUs_supported). For example, if you are using Nvidia GeForce GTX 1060, then the compute capability version is 6.1, so change to: arch=compute_61,code=sm_61: 
@@ -172,7 +172,7 @@ include_directories(/usr/include/gstreamer-1.0 /usr/lib/x86_64-linux-gnu/gstream
 then
 
 ```shell
-cd jetson-inference/
+cd jetson-inference-batch/
 mkdir build
 cd build
 cmake ../
