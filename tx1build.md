@@ -24,7 +24,7 @@ Package                                                Action
         >── Compile CUDA Samples.......................no action
         >── TensorRT...................................install
         >── OpenCV for Tegra...........................no action
-        >── Multimedia API package.....................no action
+        >── Multimedia API package.....................install
         >── cuDNN Package..............................install
 ```
 
@@ -36,7 +36,7 @@ Package                                                Action
 
 ```shell
 sudo apt-get update
-sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf libeigen3-dev uuid-dev libusb-1.0-0-dev libudev-dev libglew-dev python-dev python-numpy libtbb2 libtbb-dev libpng-dev libtiff-dev libjasper-dev gstreamer1.0 gstreamer1.0-tools gstreamer1.0-plugins-ugly
+sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf libeigen3-dev uuid-dev libusb-1.0-0-dev libudev-dev libglew-dev python-dev python-numpy libtbb2 libtbb-dev libpng-dev libtiff-dev libjasper-dev gstreamer1.0 gstreamer1.0-tools gstreamer1.0-plugins-ugly gfortran libboost-filesystem-dev libboost-python-dev libboost-system-dev libboost-thread-dev libgflags-dev python-all-dev python-h5py python-matplotlib python-numpy python-pil python-pip python-pydot python-scipy python-skimage python-sklearn
 ```
 
 ## Update Eigen
@@ -109,16 +109,16 @@ make
 
 For Jetson TX1:
 ```shell
-wget --no-check-certificate https://www.stereolabs.com/developers/downloads/ZED_SDK_Linux_JTX1_v2.2.0.run
-chmod u+x ZED_SDK_Linux_JTX1_v2.2.0.run
-./ZED_SDK_Linux_JTX1_v2.2.0.run
+wget --no-check-certificate https://www.stereolabs.com/developers/downloads/ZED_SDK_Linux_JTX1_v2.3.0.run
+chmod u+x ZED_SDK_Linux_JTX1_v2.3.0.run
+./ZED_SDK_Linux_JTX1_v2.3.0.run
 ```
 
 For Jetson TX2:
 ```shell
-wget --no-check-certificate https://www.stereolabs.com/developers/downloads/ZED_SDK_Linux_JTX2_v2.2.0.run
-chmod u+x ZED_SDK_Linux_JTX2_v2.2.0.run
-./ZED_SDK_Linux_JTX2_v2.2.0.run
+wget --no-check-certificate https://www.stereolabs.com/developers/downloads/ZED_SDK_Linux_JTX2_v2.3.0.run
+chmod u+x ZED_SDK_Linux_JTX2_v2.3.0.run
+./ZED_SDK_Linux_JTX2_v2.3.0.run
 ```
 
 ## Build OpenKAI
