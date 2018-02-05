@@ -6,7 +6,7 @@ sidebar: openkai
 permalink: tx1build.html
 summary: These brief instructions will help you build and run OpenKAI on NVIDIA Jetson TX1
 ---
-# Build & Run on NVIDIA Jetson TX1/TX2 (Ubuntu 16.04LTS / JetPack3.0)
+# Build & Run on NVIDIA Jetson TX1/TX2 (Ubuntu 16.04LTS / JetPack3.1)
 
 ## JetPack install & flash
 Download the latest [JetPack](https://developer.nvidia.com/embedded/jetpack) and run the installer, choose the following options to be installed and flashed into your Jetson TX1/TX2:
@@ -23,7 +23,7 @@ Package                                                Action
         >── CUDA Toolkit...............................install
         >── Compile CUDA Samples.......................no action
         >── TensorRT...................................install
-        >── OpenCV for Tegra...........................no action
+        >── OpenCV for Tegra...........................install
         >── Multimedia API package.....................install
         >── cuDNN Package..............................install
 ```
@@ -31,6 +31,15 @@ Package                                                Action
 <div style="text-align:center">
 {% include image.html file="JetPackInstall.png" alt="JetPack install option" caption="JetPack install option" %}
 </div>
+
+## Change the performance setting
+```shell
+set +H
+sudo sh -c "echo '#!/bin/sh\n/home/ubuntu/jetson_clocks.sh\nnvpmodel -m 0\nexit 0\n' >> /etc/rc.local"
+set -H
+sudo chmod a+x /etc/rc.local
+sudo chmod a+x /home/ubuntu/jetson_clocks.sh
+```
 
 ## Prerequisites
 
