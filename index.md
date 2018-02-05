@@ -31,7 +31,7 @@ External camera:
 
 
 ## Build & Run
-[Build on NVIDIA Jetson TX1](/tx1build.md)
+[Build on NVIDIA Jetson TX1/TX2](/tegrabuild.md)
 
 [Build on Ubuntu desktop systems](/x86build.md)
 

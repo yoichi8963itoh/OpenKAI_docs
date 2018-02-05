@@ -27,8 +27,8 @@ entries:
       url: /index.html
       output: web
 
-    - title: Build & Run on NVIDIA Jetson TX1
-      url: /tx1build.html
+    - title: Build & Run on NVIDIA Jetson TX1/TX2
+      url: /tegrabuild.html
       output: web, pdf
 
     - title: Installation for Ubuntu 16.04LTS on x86_64 systems
