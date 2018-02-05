@@ -119,15 +119,15 @@ make
 For Jetson TX1:
 ```shell
 wget --no-check-certificate https://cdn.stereolabs.com/developers/downloads/ZED_SDK_Linux_JTX1_v2.3.0_JP3.1.run
-chmod u+x ZED_SDK_Linux_JTX1_v2.3.0.run
-./ZED_SDK_Linux_JTX1_v2.3.0.run
+chmod u+x ZED_SDK_Linux_JTX1_v2.3.0_JP3.1.run
+./ZED_SDK_Linux_JTX1_v2.3.0_JP3.1.run
 ```
 
 For Jetson TX2:
 ```shell
 wget --no-check-certificate https://cdn.stereolabs.com/developers/downloads/ZED_SDK_Linux_JTX2_v2.3.0_JP3.1.run
-chmod u+x ZED_SDK_Linux_JTX2_v2.3.0.run
-./ZED_SDK_Linux_JTX2_v2.3.0.run
+chmod u+x ZED_SDK_Linux_JTX2_v2.3.0_JP3.1.run
+./ZED_SDK_Linux_JTX2_v2.3.0_JP3.1.run
 ```
 
 ## Build OpenKAI
