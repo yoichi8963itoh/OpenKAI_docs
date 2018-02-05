@@ -1,6 +1,6 @@
 ---
 title: Getting started with OpenKAI
-keywords: sample homepage
+keywords: Jetson OpenKAI Ardupilot
 tags: [getting_started]
 sidebar: openkai
 permalink: index.html

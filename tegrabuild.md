@@ -3,8 +3,8 @@ title: Build & Run on NVIDIA Jetson TX1/TX2
 keywords: NVIDIA Jetson TX1 TX2
 tags: [Jetson_TX1/TX2]
 sidebar: openkai
-permalink: tx1build.html
-summary: These brief instructions will help you build and run OpenKAI on NVIDIA Jetson TX1
+permalink: tegrabuild.html
+summary: These brief instructions will help you build and run OpenKAI on NVIDIA Jetson TX1/TX2
 ---
 # Build & Run on NVIDIA Jetson TX1/TX2 (Ubuntu 16.04LTS / JetPack3.1)
 
