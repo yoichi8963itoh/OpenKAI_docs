@@ -10,10 +10,42 @@ summary: These brief instructions will help you build and run OpenKAI on Ubuntu 
 
 ## Prerequisites
 
+Base:
 ```shell
 sudo apt-get update
-sudo apt-get -y install git cmake build-essential cmake-curses-gui libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libgtk2.0-dev pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtbb-dev libqt4-dev libtheora-dev libxvidcore-dev x264 v4l-utils unzip python-protobuf python-scipy python-pip libeigen3-dev uuid-dev libusb-1.0-0-dev libudev-dev gstreamer1.0 gstreamer1.0-tools gstreamer1.0-plugins-ugly
+sudo apt-get -y install build-essential cmake cmake-curses-gui git libboost-all-dev libgflags-dev libgoogle-glog-dev uuid-dev libboost-filesystem-dev libboost-system-dev libboost-thread-dev
 ```
+
+Blas:
+```shell
+sudo apt-get -y install libatlas-base-dev libopenblas-base libopenblas-dev liblapack-dev liblapack3
+```
+
+Codecs:
+```shell
+sudo apt-get -y install libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libpng-dev libtiff-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtheora-dev libxvidcore-dev x264 v4l-utils gstreamer1.0 gstreamer1.0-tools gstreamer1.0-plugins-ugly libjpeg-turbo8-dev libvorbis-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev
+```
+
+IO:
+```shell
+sudo apt-get -y install libusb-1.0-0-dev libudev-dev
+```
+
+GUI:
+```shell
+sudo apt-get -y install libgtk2.0-dev libqt5-dev libglew-dev
+```
+
+Python:
+```shell
+sudo apt-get -y install python-protobuf python-scipy python-pip python-dev python-numpy libboost-python-dev python-all-dev python-h5py python-matplotlib python-numpy python-pil python-pip python-pydot python-scipy python-skimage python-sklearn
+```
+
+Optional:
+```shell
+sudo apt-get -y install libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev liblmdb-dev protobuf-compiler unzip libtbb-dev libtbb2 pkg-config gfortran
+```
+
 
 ## Update Eigen
 
@@ -145,34 +177,8 @@ chmod +x build.sh
 ## jetson-inference-batch
 ```shell
 git clone https://github.com/yankailab/jetson-inference-batch.git
-```
-
-Open the CMakeLists.txt in jetson-inference directory and replace the CUDA compute ability version in the following part with your own [CUDA device](https://en.wikipedia.org/wiki/CUDA#GPUs_supported). For example, if you are using Nvidia GeForce GTX 1060, then the compute capability version is 6.1, so change to: arch=compute_61,code=sm_61: 
-
-```cmake
-set(
-	CUDA_NVCC_FLAGS
-	${CUDA_NVCC_FLAGS}; 
-    -O3 -gencode arch=compute_61,code=sm_61
-)
-```
-
-Next, replace the following part
-
-```shell
-include_directories(/usr/include/gstreamer-1.0 /usr/lib/aarch64-linux-gnu/gstreamer-1.0/include /usr/include/glib-2.0 /usr/include/libxml2 /usr/lib/aarch64-linux-gnu/glib-2.0/include/)
-```
-
-with
-
-```shell
-include_directories(/usr/include/gstreamer-1.0 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/include /usr/include/glib-2.0 /usr/include/libxml2 /usr/lib/x86_64-linux-gnu/glib-2.0/include/)
-```
-
-then
-
-```shell
 cd jetson-inference-batch/
+cp CMakeLists_x86_64.txt CMakeLists.txt
 mkdir build
 cd build
 cmake ../
