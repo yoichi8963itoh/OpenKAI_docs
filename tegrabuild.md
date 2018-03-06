@@ -56,7 +56,7 @@ sudo apt-get -y install libatlas-base-dev libopenblas-base libopenblas-dev libla
 
 Codecs:
 ```shell
-sudo apt-get -y install libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libpng-dev libtiff-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtheora-dev libxvidcore-dev x264 v4l-utils gstreamer1.0 gstreamer1.0-tools gstreamer1.0-plugins-ugly libjpeg-turbo8-dev libvorbis-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev
+sudo apt-get -y install libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libpng-dev libtiff-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtheora-dev libxvidcore-dev x264 v4l-utils gstreamer1.0 gstreamer1.0-tools gstreamer1.0-plugins-ugly libturbojpeg libturbojpeg-dev libvorbis-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev
 ```
 
 IO:
