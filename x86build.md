@@ -13,7 +13,7 @@ summary: These brief instructions will help you build and run OpenKAI on Ubuntu 
 Base:
 ```shell
 sudo apt-get update
-sudo apt-get -y install build-essential cmake cmake-curses-gui git libboost-all-dev libgflags-dev libgoogle-glog-dev uuid-dev libboost-filesystem-dev libboost-system-dev libboost-thread-dev
+sudo apt-get -y install build-essential cmake cmake-curses-gui git libboost-all-dev libgflags-dev libgoogle-glog-dev uuid-dev libboost-filesystem-dev libboost-system-dev libboost-thread-dev ncurses-dev
 ```
 
 Blas:
