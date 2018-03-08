@@ -34,6 +34,7 @@ Package                                                Action
 
 ## Change the performance setting
 ```shell
+sudo rm /etc/rc.local
 set +H
 sudo sh -c "echo '#!/bin/sh\n/home/ubuntu/jetson_clocks.sh\nnvpmodel -m 0\nexit 0\n' >> /etc/rc.local"
 set -H
@@ -56,7 +57,7 @@ sudo apt-get -y install libatlas-base-dev libopenblas-base libopenblas-dev libla
 
 Codecs:
 ```shell
-sudo apt-get -y install libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libpng-dev libtiff-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtheora-dev libxvidcore-dev x264 v4l-utils gstreamer1.0 gstreamer1.0-tools gstreamer1.0-plugins-ugly libturbojpeg libturbojpeg-dev libvorbis-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev
+sudo apt-get -y install libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libpng-dev libtiff-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libtheora-dev libxvidcore-dev x264 v4l-utils gstreamer1.0 gstreamer1.0-tools gstreamer1.0-plugins-ugly libturbojpeg libvorbis-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev
 ```
 
 IO:
@@ -66,7 +67,7 @@ sudo apt-get -y install libusb-1.0-0-dev libudev-dev
 
 GUI:
 ```shell
-sudo apt-get -y install libgtk2.0-dev libqt5-dev libglew-dev
+sudo apt-get -y install libgtk2.0-dev libglew-dev
 ```
 
 Python:
@@ -139,6 +140,7 @@ chmod +x build.sh
 ```shell
 git clone https://github.com/yankailab/jetson-inference-batch.git
 cd jetson-inference-batch/
+cp CMakeLists_tegra.txt CMakeLists.txt
 mkdir build
 cd build
 cmake ../

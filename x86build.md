@@ -33,7 +33,7 @@ sudo apt-get -y install libusb-1.0-0-dev libudev-dev
 
 GUI:
 ```shell
-sudo apt-get -y install libgtk2.0-dev libqt5-dev libglew-dev
+sudo apt-get -y install libgtk2.0-dev libglew-dev
 ```
 
 Python:
