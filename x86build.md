@@ -36,7 +36,7 @@ GUI:
 sudo apt-get -y install libgtk2.0-dev libglew-dev
 ```
 
-Python:
+Python (Optional):
 ```shell
 sudo apt-get -y install python-protobuf python-scipy python-pip python-dev python-numpy libboost-python-dev python-all-dev python-h5py python-matplotlib python-numpy python-pil python-pip python-pydot python-scipy python-skimage python-sklearn
 ```
@@ -99,23 +99,6 @@ sudo cp -rp lib/* /usr/local/lib/
 sudo cp -rp include/* /usr/local/include/
 sudo cp -rp bin/* /usr/local/bin/
 sudo cp -rp targets/x86_64-linux-gnu/* /usr/libx86_64-linux-gnu/
-```
-
-## (Optional) Edit OpenCV
-If you are going to use ZED camera with OpenKAI, the latest ZED driver (v2.2.0) is built with OpenCV3.1, however, the latest OpenCV git marks the version with 3.3.1, which may brings difficulties in linking OpenCV .so files. A simple work-around is to change the version definition in the OpenCV repository. Open opencv/modules/core/include/opencv2/core/version.hpp and replace the following part:
-
-```cpp
-#define CV_VERSION_MAJOR    3
-#define CV_VERSION_MINOR    3
-#define CV_VERSION_REVISION 1
-```
-
-with
-
-```cpp
-#define CV_VERSION_MAJOR    3
-#define CV_VERSION_MINOR    1
-#define CV_VERSION_REVISION 0
 ```
 
 ## Build OpenCV

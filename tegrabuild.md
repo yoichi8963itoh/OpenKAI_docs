@@ -70,7 +70,7 @@ GUI:
 sudo apt-get -y install libgtk2.0-dev libglew-dev
 ```
 
-Python:
+Python (Optional):
 ```shell
 sudo apt-get -y install python-protobuf python-scipy python-pip python-dev python-numpy libboost-python-dev python-all-dev python-h5py python-matplotlib python-numpy python-pil python-pip python-pydot python-scipy python-skimage python-sklearn
 ```
@@ -96,8 +96,8 @@ sudo make install
 
 ```shell
 git clone https://github.com/opencv/opencv.git
-cd ~/opencv
 git clone https://github.com/opencv/opencv_contrib.git
+cd ~/opencv
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ..
